@@ -2,6 +2,7 @@ package com.acorus.spring6.iocxml;
 
 import com.acorus.spring6.iocxml.bean.UserDao;
 import com.acorus.spring6.iocxml.di.Book;
+import com.acorus.spring6.iocxml.dimap.Student;
 import com.acorus.spring6.iocxml.diobj.Department;
 import com.acorus.spring6.iocxml.diobj.EmpLoyee;
 import org.junit.Test;
@@ -112,7 +113,7 @@ public class TestUser {
     }
 
     /**
-     * 测试集合注入
+     * 测试List集合注入
      */
     @Test
     public void testList(){
@@ -122,6 +123,20 @@ public class TestUser {
         Department department = (Department) context.getBean("department");
         System.out.println(department);
     }
+
+    /**
+     * 测试map集合注入
+     */
+    @Test
+    public void testMap(){
+        //加载配置文件
+        ApplicationContext context = new ClassPathXmlApplicationContext("bean_dimap.xml");
+        //获取对象
+        Student student = (Student) context.getBean("student");
+        System.out.println(student);
+    }
+
+
 
 
 }

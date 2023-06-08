@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--    map集合注入-->
+    <bean id="teacher" class="com.acorus.spring6.iocxml.dimap.Teacher">
+        <property name="teacherId" value="1"></property>
+        <property name="teacherName" value="xh"></property>
+    </bean>
+    <bean id="student" class="com.acorus.spring6.iocxml.dimap.Student">
+        <property name="sid" value="1"></property>
+        <property name="sname" value="xl"></property>
+        <property name="teacherMap">
+            <map>
+                <entry key="1" value-ref="teacher"></entry>
+                <entry key="2" value-ref="teacher"></entry>
+                <entry key="3" value-ref="teacher"></entry>
+            </map>
+        </property>
+    </bean>
+</beans>

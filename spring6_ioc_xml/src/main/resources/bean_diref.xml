@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+       >
+
+    <bean id="student" class="com.acorus.spring6.iocxml.dimap.Student">
+        <property name="sid" value="01"></property>
+        <property name="sname" value="s1"></property>
+        <property name="teacherMap" ref="teachers"></property>
+        <property name="ls" ref="lesons"></property>
+    </bean>
+
+<!--    Teacher Map-->
+    <util:map id="teachers">
+        <entry key="1" value-ref="teacher1"></entry>
+        <entry key="2" value-ref="teacher2"></entry>
+        <entry key="3" value-ref="teacher3"></entry>
+    </util:map>
+<!--    Lesson List-->
+    <util:list id="lesons">
+        <ref bean="lesson1"></ref>
+        <ref bean="lesson2"></ref>
+        <ref bean="lesson3"></ref>
+    </util:list>
+
+<!--    课程1-->
+    <bean id="lesson1" class="com.acorus.spring6.iocxml.dimap.Lesson">
+        <property name="lname" value="l1"></property>
+    </bean>
+    <!--    课程2-->
+    <bean id="lesson2" class="com.acorus.spring6.iocxml.dimap.Lesson">
+        <property name="lname" value="l2"></property>
+    </bean>
+    <!--    课程3-->
+    <bean id="lesson3" class="com.acorus.spring6.iocxml.dimap.Lesson">
+        <property name="lname" value="l3"></property>
+    </bean>
+<!--    Teacher1-->
+    <bean id="teacher1" class="com.acorus.spring6.iocxml.dimap.Teacher">
+       <property name="teacherId" value="1"></property>
+        <property name="teacherName" value="t1"></property>
+    </bean>
+    <!--    Teacher1-->
+    <bean id="teacher1" class="com.acorus.spring6.iocxml.dimap.Teacher">
+        <property name="teacherId" value="1"></property>
+        <property name="teacherName" value="t1"></property>
+    </bean>
+    <!--    Teacher2-->
+    <bean id="teacher2" class="com.acorus.spring6.iocxml.dimap.Teacher">
+        <property name="teacherId" value="2"></property>
+        <property name="teacherName" value="t2"></property>
+    </bean>
+    <!--    Teacher3-->
+    <bean id="teacher3" class="com.acorus.spring6.iocxml.dimap.Teacher">
+        <property name="teacherId" value="3"></property>
+        <property name="teacherName" value="t3"></property>
+    </bean>
+</beans>
