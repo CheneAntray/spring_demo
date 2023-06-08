@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!--    1,set方式完成注入-->
+    <bean id="book" class="com.acorus.spring6.iocxml.di.Book">
+        <property name="bname" value="武林外史"></property>
+        <property name="author" value="古龙"></property>
+    </bean>
+
+<!--    2,构造器注入-->
+    <bean id="bookCon" class="com.acorus.spring6.iocxml.di.Book" >
+        <constructor-arg name="author" value="梁羽生"></constructor-arg>
+        <constructor-arg name="bname" value="七剑下天山"></constructor-arg>
+    </bean>
+</beans>

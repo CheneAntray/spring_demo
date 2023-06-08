@@ -8,5 +8,5 @@
 
 <!--    接口实现类获取的过程-->
     <bean id="userDaoImpl" class="com.acorus.spring6.iocxml.bean.UserDaoImpl"></bean>
-    <bean id="userDaoImpl1" class="com.acorus.spring6.iocxml.bean.UserDaoImpl1"></bean>
+<!--    <bean id="userDaoImpl1" class="com.acorus.spring6.iocxml.bean.UserDaoImpl1"></bean>-->
 </beans>

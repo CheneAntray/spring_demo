@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--   引入外部bean
+            1,创建两个类的对象
+            2,在emp里面引入dept的bean
+         -->
+    <bean id="department" class="com.acorus.spring6.iocxml.diobj.Department">
+        <property name="dname" value="安保部"></property>
+    </bean>
+    <bean id="employee" class="com.acorus.spring6.iocxml.diobj.EmpLoyee">
+        <property name="ename" value="lucy"></property>
+        <property name="eage" value="28"></property>
+        <property name="department" ref="department"></property>
+    </bean>
+
+<!--    内部bean-->
+    <bean id="employee1" class="com.acorus.spring6.iocxml.diobj.EmpLoyee">
+        <property name="ename" value="lihua"></property>
+        <property name="eage" value="19"></property>
+        <property name="department">
+            <bean id="department1" class="com.acorus.spring6.iocxml.diobj.Department">
+                <property name="dname" value="财务部"></property>
+            </bean>
+        </property>
+    </bean>
+
+<!--    级联赋值-->
+    <bean id="department2" class="com.acorus.spring6.iocxml.diobj.Department">
+        <property name="dname" value="技术部"></property>
+    </bean>
+    <bean id="employee2" class="com.acorus.spring6.iocxml.diobj.EmpLoyee">
+        <property name="ename" value="xiaoming"></property>
+        <property name="eage" value="18"></property>
+        <property name="department" ref="department2"></property>
+        <property name="department.dname" value="测试部"></property>
+    </bean>
+</beans>

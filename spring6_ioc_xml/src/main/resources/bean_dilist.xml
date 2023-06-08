@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="employee" class="com.acorus.spring6.iocxml.diobj.EmpLoyee">
+        <property name="ename" value="lucy"></property>
+        <property name="eage" value="28"></property>
+    </bean>
+
+    <bean id="employee2" class="com.acorus.spring6.iocxml.diobj.EmpLoyee">
+        <property name="ename" value="lucy"></property>
+        <property name="eage" value="28"></property>
+    </bean>
+
+
+    <!--    list集合的注入-->
+    <bean id="department" class="com.acorus.spring6.iocxml.diobj.Department">
+        <property name="dname" value="aaa"></property>
+        <property name="empList">
+            <list>
+                <ref bean="employee"></ref>
+                <ref bean="employee2"></ref>
+            </list>
+        </property>
+    </bean>
+
+</beans>
