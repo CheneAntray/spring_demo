@@ -136,7 +136,22 @@ public class TestUser {
         System.out.println(student);
     }
 
+    /**
+     * 测试ref注入集合
+     */
+    @Test
+    public void testUtilRef(){
+        //加载配置文件
+        ApplicationContext context = new ClassPathXmlApplicationContext("bean_diref.xml");
+        //获取对象
+        Student student = (Student) context.getBean("student");
+        System.out.println(student);
+        //获取对象 p 命名空间
+        Student studentp = (Student) context.getBean("studentp");
+        System.out.println(studentp);
 
+
+    }
 
 
 }

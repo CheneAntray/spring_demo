@@ -2,10 +2,16 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:p="http://www.springframework.org/schema/p"
        xsi:schemaLocation="http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
        >
 
+
+    <bean id="studentp" class="com.acorus.spring6.iocxml.dimap.Student" p:sid="1" p:sname="xiaom"
+    p:ls-ref="lesons" p:teacherMap-ref="teachers"></bean>
+
+<!--    ref 引用util集合块-->
     <bean id="student" class="com.acorus.spring6.iocxml.dimap.Student">
         <property name="sid" value="01"></property>
         <property name="sname" value="s1"></property>
@@ -41,11 +47,6 @@
 <!--    Teacher1-->
     <bean id="teacher1" class="com.acorus.spring6.iocxml.dimap.Teacher">
        <property name="teacherId" value="1"></property>
-        <property name="teacherName" value="t1"></property>
-    </bean>
-    <!--    Teacher1-->
-    <bean id="teacher1" class="com.acorus.spring6.iocxml.dimap.Teacher">
-        <property name="teacherId" value="1"></property>
         <property name="teacherName" value="t1"></property>
     </bean>
     <!--    Teacher2-->
