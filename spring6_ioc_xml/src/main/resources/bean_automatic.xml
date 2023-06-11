@@ -3,4 +3,13 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+<!--    根据类型自动注入-->
+<!--    <bean id="userController" class="com.acorus.spring6.iocxml.automatic.controller.UserController" autowire="byType"></bean>-->
+<!--    <bean id="userServiceImpl" class="com.acorus.spring6.iocxml.automatic.service.UserServiceImpl" autowire="byType"></bean>-->
+<!--    <bean id="uerDaoImpl" class="com.acorus.spring6.iocxml.automatic.dao.UserDaoImpl"></bean>-->
+
+<!--    根据名称自动注入-->
+    <bean id="userController" class="com.acorus.spring6.iocxml.automatic.controller.UserController" autowire="byName"></bean>
+    <bean id="userService" class="com.acorus.spring6.iocxml.automatic.service.UserServiceImpl" autowire="byName"></bean>
+    <bean id="userDao" class="com.acorus.spring6.iocxml.automatic.dao.UserDaoImpl"></bean>
 </beans>
