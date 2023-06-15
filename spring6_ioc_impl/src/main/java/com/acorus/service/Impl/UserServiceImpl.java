@@ -1,6 +1,7 @@
 package com.acorus.service.Impl;
 
 import com.acorus.annotation.CreateBean;
+import com.acorus.annotation.Di;
 import com.acorus.dao.UserDao;
 import com.acorus.service.UserService;
 
@@ -16,11 +17,12 @@ import com.acorus.service.UserService;
 @CreateBean
 public class UserServiceImpl implements UserService {
 
+    @Di
     private UserDao userDao;
 
     @Override
     public void addUser() {
-//        userDao.addUser();
-        System.out.println("UserServiceImpl");
+        userDao.addUser();
+//        System.out.println("UserServiceImpl");
     }
 }

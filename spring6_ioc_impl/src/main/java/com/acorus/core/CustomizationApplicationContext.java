@@ -2,10 +2,10 @@ package com.acorus.core;
 
 
 import com.acorus.annotation.CreateBean;
-import org.springframework.beans.factory.BeanFactory;
+import com.acorus.annotation.Di;
 
 import java.io.File;
-import java.io.IOException;
+import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
 import java.net.URLDecoder;
@@ -61,6 +61,7 @@ public class CustomizationApplicationContext implements ApplicationContext {
                 //调用方法根据绝对路径装载bean
                 loadBean(new File(filePath));
             }
+            loadDi();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -111,14 +112,33 @@ public class CustomizationApplicationContext implements ApplicationContext {
         }
     }
 
+    /**
+     * @Di注解 注入属性
+     */
     public void loadDi(){
         //1,循环所有加载的bean
+        beanFactory.forEach((c,v)->{
+            Field[] fields = v.getClass().getDeclaredFields();
+            //2,循环加载bean的对象
+            for (Field field : fields) {
+                Di di = field.getAnnotation(Di.class);
+                //3,判断对象上是否有注解@Di
+                if(di!=null){
+                    field.setAccessible(true);
+                    //4,如果有注解注入属性
+                    try {
+                        field.set(v,beanFactory.get(field.getType()));
+                    } catch (IllegalAccessException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+            }
+        });
 
-        //2,循环加载bean的对象
 
-        //3,判断对象上是否有注解@Di
 
-        //4,如果有注解注入属性
+
+
 
     }
 }

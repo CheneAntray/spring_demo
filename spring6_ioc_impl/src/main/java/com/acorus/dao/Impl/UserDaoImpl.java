@@ -1,5 +1,6 @@
 package com.acorus.dao.Impl;
 
+import com.acorus.annotation.CreateBean;
 import com.acorus.dao.UserDao;
 
 /**
@@ -11,6 +12,7 @@ import com.acorus.dao.UserDao;
  * @Create 2023/6/13 13:11
  * @Version 1.0
  */
+@CreateBean
 public class UserDaoImpl implements UserDao {
     @Override
     public void addUser() {
