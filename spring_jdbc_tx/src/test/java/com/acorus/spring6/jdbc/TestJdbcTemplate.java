@@ -1,5 +1,6 @@
 package com.acorus.spring6.jdbc;
 
+import com.acorus.spring6.config.SpringTxConfig;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -17,7 +18,7 @@ import java.util.List;
  * @Create 2023/6/16 11:09
  * @Version 1.0
  */
-@SpringJUnitConfig(locations = "classpath:bean.xml")
+@SpringJUnitConfig(classes = {SpringTxConfig.class})
 public class TestJdbcTemplate {
 
     @Autowired
